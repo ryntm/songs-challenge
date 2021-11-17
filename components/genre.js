@@ -1,6 +1,6 @@
 import { request, gql } from 'graphql-request';
 import useSWR from 'swr';
-
+import styles from '../styles/nav.module.css'
 import Song from './song';
 
 const SONGS_QUERY = gql`
@@ -63,7 +63,8 @@ export default function Genre({ genre }) {
   }
 
   return (
-    <div className="container" id={genre}>
+    <div className={`${styles.containersongs} container`} id={genre}>
+    {/* // <div className="container" id={genre}> */}
       <h2 className="text-capitalize py-5">{genre}</h2>
       {data.SongsByGenre.length ? (
         <div className="row row-cols-1 row-cols-sm-3 row-cols-lg-5 g-3">

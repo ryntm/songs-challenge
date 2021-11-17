@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Genres from '../components/genres';
 import Nav from '../components/nav';
+import styles from '../styles/nav.module.css'
 
 export default function GenresPage() {
   return (
@@ -13,7 +14,7 @@ export default function GenresPage() {
           </div>
         </div>
       </section>
-      <div className="bg-light" id="songs">
+      <div className={`${styles.songs} bg-light`} id="songs">
 
         <Nav />
         <Genres />
