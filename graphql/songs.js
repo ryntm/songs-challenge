@@ -6,11 +6,31 @@ export default {
       const offsetStart = PER_PAGE * (page - 1);
       const offsetEnd = offsetStart + PER_PAGE;
 
+      if (search) {
+        let newSearch = search.split('')
+        console.log(newSearch)
+        
+        if (search.indexOf("\"") > -1) {
+          console.log('quotes')
+          let indexOfQuote = search.indexOf("\"")
+          newSearch.splice(indexOfQuote, 0, "\"")
+          search = newSearch.join('');
+        }
+        
+        if (search.indexOf("'") > -1) {
+          console.log('apostrophe')
+          let indexOfQuote = search.indexOf(`'`)
+          newSearch.splice(indexOfQuote, 0, `'`)
+          search = newSearch.join('');
+        }
+      }
+
+
       const query = search
         ? `SELECT * FROM songs
-      WHERE track_name LIKE "%${search}%"
-      OR track_artist LIKE "%${search}%"
-      OR track_album_name LIKE "%${search}%"
+      WHERE track_name LIKE '%${search}%'
+      OR track_artist LIKE '%${search}%'
+      OR track_album_name LIKE '%${search}%'
       ORDER BY track_name ASC
       LIMIT ${PER_PAGE} OFFSET ${offsetStart}`
         : `SELECT * FROM songs

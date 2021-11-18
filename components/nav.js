@@ -44,7 +44,7 @@ export default function Nav() {
                     containerReached.push(containerHeights[i])
                 } 
             }
-
+ 
             let getMain = document.getElementById('genre-buttons')
 
             let childrenArray = getMain.children
@@ -54,11 +54,9 @@ export default function Nav() {
                 if (i === containerReached.length-1) {
                     childrenArray[i].children[0].classList.add('btn-primary') 
                     childrenArray[i].children[0].classList.remove('btn-light')
-                    console.log('yes')
                 } else {
                     childrenArray[i].children[0].classList.add('btn-light')
                     childrenArray[i].children[0].classList.remove('btn-primary') 
-                    console.log('no')
                 }
             }
         }
