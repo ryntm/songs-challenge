@@ -8,17 +8,14 @@ export default {
 
       if (search) {
         let newSearch = search.split('')
-        console.log(newSearch)
         
         if (search.indexOf("\"") > -1) {
-          console.log('quotes')
           let indexOfQuote = search.indexOf("\"")
           newSearch.splice(indexOfQuote, 0, "\"")
           search = newSearch.join('');
         }
         
         if (search.indexOf("'") > -1) {
-          console.log('apostrophe')
           let indexOfQuote = search.indexOf(`'`)
           newSearch.splice(indexOfQuote, 0, `'`)
           search = newSearch.join('');
